@@ -15,4 +15,15 @@ Different Waffle sizes maintain similar feature sets, with varying amounts of GP
   
 ## Waffle Sizes
 - Waffle Mini
-	- F2800154QRHBRQ1, 18 GPIO
+	- F2800154QRHBRQ1, 20 GPIO
+    - 35.56 mm x 17.78 mm
+    - 1.4" x 0.7"
+    - Breadboard compatible
+    - Can be surface mounted w/ castelated pins (single side components)
+    - Tag Connect 6 pin cJTAG interface (Odd Even Numbering)
+        - 1: 3V3
+        - 2: JTAG TMS
+        - 3: XRSn (Reset)
+        - 4: JTAG TCK
+        - 5: GND
+        - 6: N/C

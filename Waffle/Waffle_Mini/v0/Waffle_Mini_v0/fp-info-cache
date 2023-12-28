@@ -1,4 +1,4 @@
-22243549851236737
+22245253583313712
 ADS8584SIPM
 BNC_THT
 
@@ -55880,6 +55880,13 @@ CSTNE_Murata_Resonator
 0
 3
 3
+ICDB_Waffle
+ICDB_Castellated_Pad
+
+
+0
+1
+1
 Inductor_SMD
 L_6.3x6.3_H3
 Choke, SMD, 6.3x6.3mm 3mm height
