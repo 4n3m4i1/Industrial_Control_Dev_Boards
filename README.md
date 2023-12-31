@@ -3,7 +3,10 @@ For many projects a deeply embeddable development board is needed with the capab
   
 ## Board Families
 - Waffle
-The Waffle series are based on the F2800154QXXX (C2000 / dual TMS320C28x core) offerings from TI, which are generally aimed at the automotive market and thus provide good interfacing abilities for most controls needs. Several options are offered in the Waffle family (or rather, will, as my needs change) that only vary in pin count.
+The Waffle series is based on the F2800154QXXX (C2000 / dual TMS320C28x core) offerings from TI, which are generally aimed at the automotive market and thus provide good interfacing abilities for most controls needs. Several options are offered in the Waffle family (or rather, will, as my needs change) that only vary in pin count.
   
+- Curly
+The Curly series is based around the RP2040 we all know and love with an integrated TI TCAN4551-Q1 or MCP25625T-E_ML for SPI -> CAN conversion. These ICs include integrated CAN transceivers as well! 
+
 - Tornado
 Waiting on the new TI M0+ parts w CAN to drop... (MSPM0G)

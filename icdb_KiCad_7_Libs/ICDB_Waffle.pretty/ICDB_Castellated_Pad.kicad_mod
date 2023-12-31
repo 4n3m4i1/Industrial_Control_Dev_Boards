@@ -1,0 +1,23 @@
+(footprint "ICDB_Castellated_Pad" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (fp_text reference "REF**" (at 0 -5.6 unlocked) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.1)))
+    (tstamp c933f6f1-a877-4715-a707-5580da3ddcb9)
+  )
+  (fp_text value "ICDB_Castellated_Pad" (at 0 -4.1 unlocked) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 639940b7-5396-4e90-83e0-4e2aa39d4416)
+  )
+  (fp_text user "${REFERENCE}" (at 0 -2.6 unlocked) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp ee90dda9-5e33-48d1-b5e9-5dfae8c01dd4)
+  )
+  (pad "1" thru_hole custom (at 0 -2.54) (size 1.7 1.7) (drill 1) (property pad_prop_castellated) (layers "*.Cu" "*.Mask")
+    (thermal_bridge_angle 45)
+    (options (clearance outline) (anchor rect))
+    (primitives
+      (gr_line (start 0 0) (end 0 2) (width 1.7))
+    ) (tstamp e02aef2e-95e4-4104-b080-a9ef58a1a4f6))
+  (pad "1" thru_hole roundrect (at 0 0) (size 1.7 1.7) (drill 1) (property pad_prop_castellated) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.25)
+    (thermal_bridge_angle 45) (tstamp e7ef9b71-84a5-4504-b2c0-318d4b73b067))
+)
