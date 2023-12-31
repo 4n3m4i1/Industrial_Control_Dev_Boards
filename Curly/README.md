@@ -7,8 +7,9 @@ By default a single size of the Curly is offered.
   
 ## Curly Sizes
 - Curly Mini
-    - RP2040
+    - RP2040, 3V3 I/O
     - 
     -
     - Mostly breadboard compatible
     - 3 pin Pico/ARM debug and programming interface
+    - For JLC/LCSC manufacturing the MCP25625T is used as it's more available
