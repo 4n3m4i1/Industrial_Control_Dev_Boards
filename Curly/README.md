@@ -13,9 +13,10 @@ By default a single size of the Curly is offered.
     - 8 GPIO, 4 A2D / GPIO (Total 12) (AREF == 3.3V, not precision ref)
     - External Chip Reset Pin (Active Low)
     - 7V - 48V DC Input Voltage
-    - Integrated CAN controller and transceiver
+    - Integrated CAN controller and transceiver (MCP25625T)
     - Integrated 2 channel RS232 converter (MAX3232)
     - NOT breadboard compatible, designed for custom vertical mounting in DIN enclosures
+    - Custom 24 pin footprint + symbol provided in library
     - 3 pin Pico/ARM debug and programming interface
     - 3 pin USB 2.0 interface (D+, D-, GND) on header
     - For JLC/LCSC manufacturing the MCP25625T is used as it's more available
