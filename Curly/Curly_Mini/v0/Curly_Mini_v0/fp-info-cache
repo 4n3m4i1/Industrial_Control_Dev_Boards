@@ -1,4 +1,4 @@
-22250365753626117
+22253774030169554
 ADS8584SIPM
 BNC_THT
 
@@ -55873,6 +55873,20 @@ heatsink
 0
 0
 0
+ICDB_Curly
+Curly_Edge_Pin
+
+
+0
+0
+0
+ICDB_Curly
+ICDB_Curly_Edge_Conn
+
+
+0
+24
+24
 ICDB_Curly
 IC_TCAN4550RGYRQ1
 
