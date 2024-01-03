@@ -11,6 +11,9 @@ The Curly series is based around the RP2040 we all know and love with an integra
 - Tornado
 Waiting on the new TI M0+ parts w CAN to drop... (MSPM0G)  
   
+## Software Support
+Once a design has been fabricated and verified boilerplate project templates will be included in each board's respective directory. Library files for on-board interfaceable components will be generally provided. Ensure required software is installed to reduce any compatability issues.
+  
 ## Using Boards in Designs
 Once a design has been fabricated and verified a footprint and symbol (KiCad 7) will be included in its respective library. These can be used as AIO components in other projects easily.
   

@@ -5,3 +5,4 @@
 *.lck
 *.zip
 *.csv#
+build/

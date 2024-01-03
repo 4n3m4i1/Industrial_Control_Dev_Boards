@@ -20,3 +20,10 @@ By default a single size of the Curly is offered.
     - 3 pin Pico/ARM debug and programming interface
     - 3 pin USB 2.0 interface (D+, D-, GND) on header
     - For JLC/LCSC manufacturing the MCP25625T is used as it's more available
+
+## Recommended Software
+The `pico-sdk` toolchain should be installed, either via the repository ([pico-sdk](https://github.com/raspberrypi/pico-sdk)), or on Linux systems the clean setup script ([pico_setup.sh](https://github.com/raspberrypi/pico-setup/blob/master/pico_setup.sh)).  
+  
+## Programming
+A standard ARM/Pico 3 pin (SWCLK, SWDIO, GND) JST connector is provided. Using a Pi Pico or other hardware to run picotool / OpenOCD `.elf` files can be loaded into the board, and GDB debugging can be done.
+Picotool writeup will come soon...

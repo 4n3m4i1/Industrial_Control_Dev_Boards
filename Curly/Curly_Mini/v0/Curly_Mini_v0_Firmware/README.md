@@ -1,0 +1,2 @@
+# Curly Mini v0 Firmware
+A boilerplate project with libraries to control the on-board CAN interface (MCP25625T) is provided. Ample use of the `pico-sdk` library functions has been done, please ensure this is properly installed.
