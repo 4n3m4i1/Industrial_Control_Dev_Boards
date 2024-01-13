@@ -1,18 +1,4 @@
-22255478291912019
-ADS8584SIPM
-BNC_THT
-
-
-0
-5
-2
-ADS8584SIPM
-QFP50P1200X1200X160-64N
-
-
-0
-64
-64
+22237811022601066
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -27,13 +13,6 @@ audio belton reverb
 0
 7
 7
-BANDIT_PCB_Lib
-Pi Pico
-
-
-0
-40
-40
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -55874,6 +55853,13 @@ heatsink
 0
 0
 ICDB_Curly
+0402C-SOD-923F
+
+
+0
+2
+2
+ICDB_Curly
 Curly_Edge_Pin
 
 
@@ -55892,8 +55878,8 @@ ICDB_Curly_V0
 
 
 0
-0
-0
+48
+24
 ICDB_Curly
 IC_TCAN4550RGYRQ1
 
@@ -55915,6 +55901,20 @@ QFN65P600X600X100-29N
 0
 29
 29
+ICDB_Curly
+TPS850 J14Q V SMTR LFS
+
+
+0
+6
+3
+ICDB_Curly
+YTS-B003-2B
+
+
+0
+6
+3
 ICDB_Waffle
 CSTNE_Murata_Resonator
 
@@ -62229,13 +62229,6 @@ Yellow 5381 Series LED
 0
 2
 2
-MAX11057ECB_
-QFP50P1200X1200X120-65N
-
-
-0
-65
-65
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
@@ -64893,13 +64886,6 @@ NetTie
 NetTie-4_THT_Pad1.0mm
 Net tie, 4 pin, 1.0mm round THT pads
 net tie
-0
-4
-4
-OpenSemi
-T60404E4622X501
-
-
 0
 4
 4
@@ -81829,13 +81815,6 @@ PCB antenna
 0
 20
 1
-RF_CONN
-PCB_SMAFRA_HT
-
-
-0
-5
-2
 RF_Converter
 Anaren_0805_2012Metric-6
 https://cdn.anaren.com/product-documents/Xinger/DirectionalCouplers/DC4759J5020AHF/DC4759J5020AHF_DataSheet(Rev_E).pdf
@@ -92021,24 +92000,3 @@ varistor
 0
 2
 2
-local_Diodes_SMD
-PowerDI323
-
-
-0
-2
-2
-local_Inductor_SMD
-NLCV25T-R33M
-
-
-0
-2
-2
-local_Inductor_SMD
-SRF0703-150M
-
-
-0
-4
-4
