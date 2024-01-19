@@ -74,16 +74,56 @@ enum RXBUFSTAT_FILT_MATCH_FIELD {
 
 // Quick Message Instructions
 #define CAN_LOAD_TX_BUFF        0x40    // Set low 3 bits (0 - 5) to directly load TXB
-#define CAN_READ_RX_BUFF        0x90    // Set bits 1,2 for which RXB to read
-
-
-struct CAN_Message {
-    uint32_t    id;     // eye dee
-    uint8_t     ext;    // Is extended ID?
-    uint8_t     len;    // Data field len in bytes, 0-8
-    uint8_t     rtr;    // Is message a Remote Transmission RQ
-    uint8_t     data[8];
+// lower 3 bits
+enum CANLOADTX_A_B_C {
+    TXB0SIDH,           // 0x31
+    TXB0D0,             // 0x36
+    TXB1SIDH,           // 0x41
+    TXB1D0,             // 0x46
+    TXB2SIDH,           // 0x51
+    TXB2D0
 };
 
+#define CAN_READ_RX_BUFF        0x90    // Set bits 1,2 for which RXB to read
+// bits 1,2 or n,m. Where to start reading the buffer from
+enum CANREADRX_N_M {
+    RXB0SIDH,           // 0x61
+    RXB0D0,             // 0x66
+    RXB1SIDH,           // 0x71
+    RXB1D0              // 0x76
+};
+
+struct CAN_Message {
+    uint32_t    id;         // eye dee
+    struct {
+        uint8_t ext;        // Extended ID?
+        uint8_t remote;     // Remote RX, or queued as RTR TX?
+    } flags;
+    uint8_t     len;        // Data field len in bytes, 0-8
+    uint8_t     mbno;       // Mailbox Number
+    uint8_t     data[8];    // Data
+};
+
+
+#define STDIDLEN            11
+#define EXTIDLEN            29
+#define EXT_ID_OFFSET       (EXTIDLEN - STDIDLEN)
+
+#define MCP_MAILBOX_D0_OFFSET   5
+enum MCP_Mailbox_Raw {
+    XBnSIDH,
+    XBnSIDL,
+    XBnEID8,
+    XBnEID0,
+    XBnDLC,
+    XBnD0,
+    XBnD1,
+    XBnD2,
+    XBnD3,
+    XBnD4,
+    XBnD5,
+    XBnD6,
+    XBnD7
+};
 
 #endif

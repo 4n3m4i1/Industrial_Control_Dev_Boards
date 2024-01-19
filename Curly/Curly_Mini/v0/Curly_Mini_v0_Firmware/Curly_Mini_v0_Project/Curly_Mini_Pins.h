@@ -35,4 +35,6 @@ enum WAFFLE_MINI_v0_PINS {
     GPIO_29_A3
 };
 
+#define SPI_CAN     spi1
+
 #endif
