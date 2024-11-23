@@ -2,17 +2,18 @@
 #include "RP2040_MCP25625T.h"
 // pico-sdk
 #include "pico/stdlib.h"
+#include "hardware/pwm.h"
 #include "hardware/spi.h"
 
 
 
-void MCP25625_Setup(spi_inst_t *spi, uint sck_pin, uint cs_pin, uint spi_rx, uint spi_tx){
+void MCP25625_Setup(spi_inst_t *spi, uint sck_pin, uint cs_pin, uint spi_rx, uint spi_tx, uint can_baud, uint can_clk_pin){
     spi_init(spi, MCP25625_SPI_HZ);     // 10MHz
     
     gpio_init(cs_pin);
     gpio_set_dir(cs_pin, GPIO_OUT);
     gpio_pull_up(cs_pin);               // Pullup just in case
-    gpio_put(cs_pin, 1);                // CS is active low
+    gpio_put(cs_pin, true);                // CS is active low
 
     gpio_set_function(sck_pin, GPIO_FUNC_SPI);
     gpio_set_function(spi_rx, GPIO_FUNC_SPI);
@@ -20,6 +21,62 @@ void MCP25625_Setup(spi_inst_t *spi, uint sck_pin, uint cs_pin, uint spi_rx, uin
 
     spi_get_hw(spi)->SSPCR0 &= ~(0x000F);   // Clear data width
     spi_get_hw(spi)->SSPCR0 |= 0x0007;      // set to 8 bit txfr widths
+
+    // Setup other CAN GPIO stuff for ISRs and external reset.
+    //  Much of this functionality can be done with the SPI interface,
+    //      and will be removed in future revisions
+#ifdef CURLY_MINI_v0
+    gpio_init(CAN_RESET);
+    gpio_set_dir(CAN_RESET, GPIO_OUT);
+    gpio_put(CAN_RESET, true);
+
+    gpio_init(CAN_TX2_RTS);
+    gpio_set_dir(CAN_TX2_RTS, GPIO_OUT);
+    gpio_put(CAN_TX2_RTS, true);
+    gpio_init(CAN_TX1_RTS);
+    gpio_set_dir(CAN_TX1_RTS, GPIO_OUT);
+    gpio_put(CAN_TX1_RTS, true);
+    gpio_init(CAN_TX0_RTS);
+    gpio_set_dir(CAN_TX0_RTS, GPIO_OUT);
+    gpio_put(CAN_TX0_RTS, true);
+
+    gpio_init(CAN_RX_INT);
+    gpio_set_dir(CAN_RX_INT, GPIO_IN);
+    gpio_pull_up(CAN_RX_INT);
+
+    gpio_init(CAN_RX_BUF0);
+    gpio_set_dir(CAN_RX_BUF0, GPIO_IN);
+    gpio_pull_up(CAN_RX_BUF0);
+
+    gpio_init(CAN_RX_BUF1);
+    gpio_set_dir(CAN_RX_BUF1, GPIO_IN);
+    gpio_pull_up(CAN_RX_BUF1);
+#endif
+    gpio_put(CAN_RESET, false);
+
+    gpio_init(can_clk_pin);
+    gpio_set_dir(can_clk_pin, GPIO_OUT);
+    // Setup CAN Clk @ 20MHz
+    //  RP2040 base clock assumed to be 125MHz
+    //  125M / 20M = 6.25
+    //      Int = 6
+    //      Frac is 4 bit fixed pt: .5, .25, .125, .0625
+    //      Frac = 1 << 2
+    // BUT divide by 2 since we need to run PWM, so:
+    //      Int = 3
+    //      Frac = .125 = (1 << 1)
+    gpio_set_function(can_clk_pin, GPIO_FUNC_PWM);
+    uint sliceno = pwm_gpio_to_slice_num(can_clk_pin);
+    uint pwmchan = pwm_gpio_to_channel(can_clk_pin);
+    pwm_set_chan_level(sliceno, pwmchan, 1);
+    pwm_set_wrap(sliceno, 2);
+    pwm_set_clkdiv_int_frac(sliceno, 3, (1 << 1));
+    pwm_set_enabled(sliceno, true);
+
+    // Finish boot reset
+    gpio_put(CAN_RESET, true);
+
+    // Now we need to setup the CAN bit clock... ew
 }
 
 // spi_write_read_blocking(spi_inst_t *spi, const uint8_t *src, uint8_t *dst, size_t len)

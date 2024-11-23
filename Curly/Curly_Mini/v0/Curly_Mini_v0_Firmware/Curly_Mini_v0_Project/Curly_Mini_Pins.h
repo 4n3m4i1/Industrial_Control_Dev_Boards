@@ -36,5 +36,6 @@ enum WAFFLE_MINI_v0_PINS {
 };
 
 #define SPI_CAN     spi1
+#define DFL_CANBAUD (500 * 1000)
 
 #endif
